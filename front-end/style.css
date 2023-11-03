@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("/images/to-do-list-background.jpg");
+}
+.container {
+  max-width: 60vw;
+  margin: 0 auto;
+  background-color: rgba(255, 228, 196, 70%);
+  border-radius: 10px;
+  min-height: 95vh;
+}
+
+.container > h1 {
+  text-align: Center;
+}
+.input-field {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+.input-text {
+  padding: 10px 20px;
+  min-width: 40vw;
+  border-radius: 10px;
+  border: 0.5px solid;
+}
+.button {
+  border: 0.5px solid green;
+  padding: 5px 20px;
+  background-color: rgb(97, 212, 99);
+  /* color: white; */
+  border-radius: 10px;
+  font-weight: 600;
+}
+.todo-list {
+  height: 100px;
+  list-style: none;
+  padding: 0;
+  border: solid red 2px;
+  overflow-y: auto;
+}
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 5px 0;
+  /* border: 1px solid #ccc; */
+  padding: 5px;
+}
+.todo-item > span{
+  margin-left: 30px;
+}
+.control-btn{
+  display: flex;
+  justify-content: space-between;
+}
+.edit {
+  border-radius: 5px;
+  border: 0px;
+  background-color: rgb(207, 207, 244);
+  margin: 0px 10px
+}
+.delete {
+  border-radius: 5px;
+  border: 0px;
+  background-color: rgb(251, 114, 114);
+  margin: 0px 10px
+}
+.complete-toggle {
+  border-radius: 5px;
+  border: 0px;
+  background-color: rgb(97, 212, 99);
+  margin: 0px 10px
+}
+.clear-completed {
+  text-align: center;
+  /* margin-top: 100px; */
+  border: solid green 2px;
+  /* height: 200px; */
+  /* width: 300px; */
+  overflow-y: auto;
+}
+
+.completed-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  /* border: 1px solid green; */
+  padding: 5px 10px;
+}
+.delete-completed {
+  background-color: rgb(242, 64, 64);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.completed-item > button {
+  border-radius: 50px;
+}
+.checkmark {
+  margin-right: 5px;
+  color: green;
+}
+
+body{
+  overflow-y: auto;
+}
+.michael{
+  display: flex;
+  justify-content: space-around;
+}

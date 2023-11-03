@@ -1,0 +1,31 @@
+GET http://localhost:3501
+
+####
+
+post http://localhost:3501/note
+Content-Type: application/json
+ 
+{
+"title":"sean",
+"content":"uogcdwebuweucbececfs"
+}
+####
+get http://localhost:3501/note
+
+####
+
+get http://localhost:3501/note/63cd5be8-9edf-40c0-8a15-47562c3256a4
+
+####
+
+put http://localhost:3501/note
+Content-Type: application/json
+ 
+{
+"id": "63cd5be8-9edf-40c0-8a15-47562c3256a4",
+"title":"jonathan test",
+"content":"eugenekorir11@gmaijigul.com a"
+}
+
+#####
+delete http://localhost:3501/note/63cd5be8-9edf-40c0-8a15-47562c3256a4
