@@ -1,29 +1,27 @@
-GET http://localhost:3501
+GET http://localhost:3520
 
 ####
 
-post http://localhost:3501/note
+post http://localhost:3520/note
 Content-Type: application/json
  
 {
-"title":"sean",
 "content":"uogcdwebuweucbececfs"
 }
 ####
-get http://localhost:3501/note
+get http://localhost:3520/note
 
 ####
 
-get http://localhost:3501/note/63cd5be8-9edf-40c0-8a15-47562c3256a4
+get http://localhost:3520/note/77d9ec9e-9eed-42e7-9c68-547225aa240e
 
 ####
 
-put http://localhost:3501/note
+put http://localhost:3520/note
 Content-Type: application/json
  
 {
-"id": "63cd5be8-9edf-40c0-8a15-47562c3256a4",
-"title":"jonathan test",
+"id": "77d9ec9e-9eed-42e7-9c68-547225aa240e",
 "content":"eugenekorir11@gmaijigul.com a"
 }
 

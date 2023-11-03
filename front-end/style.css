@@ -33,25 +33,19 @@ body {
   font-weight: 600;
 }
 .todo-list {
-  height: 100px;
   list-style: none;
   padding: 0;
-  border: solid red 2px;
-  overflow-y: auto;
 }
 .todo-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   margin: 5px 0;
   /* border: 1px solid #ccc; */
   padding: 5px;
 }
-.todo-item > span{
-  margin-left: 30px;
-}
-.control-btn{
+.control-btn {
   display: flex;
   justify-content: space-between;
 }
@@ -59,27 +53,23 @@ body {
   border-radius: 5px;
   border: 0px;
   background-color: rgb(207, 207, 244);
-  margin: 0px 10px
+  margin: 0px 10px;
 }
 .delete {
   border-radius: 5px;
   border: 0px;
   background-color: rgb(251, 114, 114);
-  margin: 0px 10px
+  margin: 0px 10px;
 }
 .complete-toggle {
   border-radius: 5px;
   border: 0px;
   background-color: rgb(97, 212, 99);
-  margin: 0px 10px
+  margin: 0px 10px;
 }
 .clear-completed {
   text-align: center;
-  /* margin-top: 100px; */
-  border: solid green 2px;
-  /* height: 200px; */
-  /* width: 300px; */
-  overflow-y: auto;
+  margin-top: 100px;
 }
 
 .completed-item {
@@ -104,12 +94,4 @@ body {
 .checkmark {
   margin-right: 5px;
   color: green;
-}
-
-body{
-  overflow-y: auto;
-}
-.michael{
-  display: flex;
-  justify-content: space-around;
 }

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createNote, deleteNote, getAllNotes, getSingleNote, testNote, updateNote } from "../controllers/taskController";
+import { createNote, deleteNote, getAllNotes, getSingleNote, testNote, updateNote } from "../controllers/noteController";
 
 
 const note_router = Router();

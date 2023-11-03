@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { query } from "../database/dbconnect";
+import { execute, query } from "../database/dbconnect";
 import { Note } from "../types/interface";
 import { v4 as uuidv4 } from "uuid";
 import { createNoteSchema, updateNoteSchema } from "../validators/validator";
@@ -19,35 +19,33 @@ export const createNote = async (req: Request, res: Response) => {
     const { error } = createNoteSchema.validate(req.body);
 
     if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+      return res.status(400).json({ error: "incorrect entry" });
     }
 
-    const { title, content } = req.body;
+    const { content } = req.body;
 
     const newNote: Note = {
       id: uuidv4(),
-      title,
       content,
-      createdAt: new Date(),
     };
 
-    const insertQuery = `INSERT INTO note (_id,title, content, createdAt) VALUES ('${
-      newNote.id
-    }','${newNote.title}', '${
-      newNote.content
-    }', '${newNote.createdAt.toISOString()}')`;
-    await query(insertQuery);
+    const procedureName = "createNote";
+    const params = newNote;
 
-    res.status(201).json(newNote);
+    await execute(procedureName, params);
+
+    res.status(201).json({ message: "    note entered succesfully", newNote });
   } catch (error) {
-    return res.status(500).json({ error: (error as Error).message });
+    console.log(error);
+
+    return res.status(500).json({ error: "internal server error" });
   }
 };
 
 //logic for getting all notes
 export const getAllNotes = async (req: Request, res: Response) => {
   try {
-    const queryString = "SELECT * FROM note";
+    const queryString = "SELECT * FROM noteEntry";
 
     const result = await query(queryString);
 
@@ -55,7 +53,7 @@ export const getAllNotes = async (req: Request, res: Response) => {
 
     res.json(notes);
   } catch (error) {
-    return res.status(500).json({ error: (error as Error).message });
+    return res.status(500).json({ error: "internal server error" });
   }
 };
 
@@ -65,7 +63,7 @@ export const getSingleNote = async (req: Request, res: Response) => {
     const { id } = req.params;
     // console.log(typeof id);
 
-    const queryString = `SELECT * FROM note WHERE _id = '${id}'`;
+    const queryString = `SELECT * FROM noteEntry WHERE _id = '${id}'`;
     // const queryString = `SELECT * FROM note `;
 
     const result = await query(queryString);
@@ -90,17 +88,26 @@ export const updateNote = async (req: Request, res: Response) => {
     if (error) {
       return res.status(400).json({ error: error.details[0].message });
     }
-    const { id, title, content }: Note = req.body;
+    const { id, content }: Note = req.body;
 
-    const NewcreatedAt = new Date();
+    // const NewcreatedAt = new Date();
 
-    const updateQuery = `
-      UPDATE note
-      SET title = '${title}', content = '${content}', createdAt = '${NewcreatedAt.toISOString()}'
-      WHERE _id = '${id}'
-    `;
+    // const updateQuery = `
+    //   UPDATE note
+    //   SET title = '${title}', content = '${content}', createdAt = '${NewcreatedAt.toISOString()}'
+    //   WHERE _id = '${id}'
+    // `;
 
-    await query(updateQuery);
+    const newNote = {
+      id,
+      content,
+    };
+    const procedureName = "updateNote";
+    const params = newNote;
+
+    await execute(procedureName, params);
+
+    // await query(updateQuery);
 
     res.json({ message: "Note updated successfully" });
   } catch (error) {
